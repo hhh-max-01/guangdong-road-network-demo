@@ -1,5 +1,9 @@
 # 省级路网运行监测预警演示系统
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hhh-max-01/guangdong-road-network-demo)
+
+公网部署使用 Render Static Site，读取仓库根目录的 `render.yaml`；不需要后端、数据库或 API Key。
+
 ## 一、项目简介
 
 本项目是一套面向交通行业投标实践作业开发的 Web DEMO 系统。
@@ -448,3 +452,4 @@ PROJECT_REQUIREMENTS.md
 本地视频配置统一位于 `src/data/cameras.js` 的 `cameraMedia`。支持 `public/videos/cam001.mp4` 至 `cam004.mp4`（文件名大小写兼容），推荐浏览器支持的 H.264 MP4。没有素材也能完整演示；损坏或编码不支持时回退动画。低/高清使用同一素材，清晰度差异是CSS模拟，不代表视频实际分辨率发生变化。
 
 交付文档：[演示操作说明](DEMO_GUIDE.md)、[系统功能说明](SYSTEM_DESCRIPTION.md)、[截图清单](SCREENSHOT_LIST.md)。截图保存至 `report-assets/screenshots/`。
+
