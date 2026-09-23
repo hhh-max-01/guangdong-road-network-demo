@@ -3,7 +3,7 @@
 ## 当前状态
 
 已准备 Render 静态站点配置，尚未创建云端站点，没有正式公网网址。
-GitHub公共仓库已创建：https://github.com/hhh-max-01/guangdong-road-network-demo 。Render站点尚待创建及验收。
+GitHub 公共仓库已经创建并完成源码上传：https://github.com/hhh-max-01/guangdong-road-network-demo 。Render 站点尚待创建及验收。
 
 ## 推荐配置：GitHub + Render Static Site
 
@@ -39,3 +39,4 @@ Render静态站点通过全球CDN提供，不可选择国内区域；GitHub Page
 - https://render.com/docs/static-sites
 - https://render.com/docs/blueprint-spec
 - https://render.com/docs/regions
+
