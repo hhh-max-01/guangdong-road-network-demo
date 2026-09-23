@@ -1,0 +1,68 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright')
+const assert=require('node:assert/strict'),fs=require('node:fs')
+async function main(){
+ const browser=await chromium.launch({channel:'chrome',headless:true})
+ try{
+  const page=await browser.newPage({viewport:{width:1920,height:1080}});page.setDefaultTimeout(12000)
+  const errors=[],external=[],sizes=[]
+  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(['warning','error'].includes(m.type()))errors.push(m.text())})
+  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)})
+  page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:5173')&&!r.url().startsWith('data:'))external.push(r.url())})
+  const nav=page.getByRole('navigation',{name:'系统导航'}),guide=page.getByRole('region',{name:'全流程演示引导'})
+  const next=()=>guide.getByRole('button',{name:'下一步',exact:true})
+  const heading=name=>page.getByRole('heading',{name,exact:true}).waitFor()
+  const shot=async(name)=>{
+   await page.clock.runFor(400)
+   const size=await page.evaluate(()=>({w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight}))
+   sizes.push({name,...size});await page.screenshot({path:`.qa/integration-${name}.png`,fullPage:true})
+  }
+  await page.goto('http://127.0.0.1:5173/');await heading('路网运行监测总览');await page.clock.install()
+  await page.getByRole('button',{name:'进入演示模式',exact:true}).click()
+  assert.ok((await guide.innerText()).includes('步骤1/6'))
+  await shot('guide-home');assert.ok(await guide.getByRole('button',{name:'上一步',exact:true}).isDisabled())
+  await next().click();await heading('视频编目管理');await shot('guide-catalog')
+  await page.getByRole('button',{name:/新增视频/}).click();await page.getByRole('dialog').waitFor();await page.keyboard.press('Escape')
+  await guide.getByRole('button',{name:'上一步',exact:true}).click();await heading('路网运行监测总览')
+  await next().click();await heading('视频编目管理');await next().click();await heading('智慧轮巡')
+  assert.ok(await next().isDisabled())
+  await page.getByRole('button',{name:'开始智慧轮巡',exact:true}).click();await page.clock.runFor(14020)
+  await shot('guide-suspected');assert.ok(await next().isEnabled());await next().click()
+  assert.ok((await guide.innerText()).includes('步骤4/6'));assert.ok(await next().isDisabled())
+  await page.getByRole('button',{name:'高码流复核',exact:true}).click();await page.clock.runFor(6020)
+  assert.ok((await page.locator('.patrol-record-panel').innerText()).includes('EVT-2026-0001'))
+  await shot('guide-patrol-confirmed')
+  await page.reload();await heading('智慧轮巡');assert.equal(await page.locator('[data-state="confirmed"]').count(),1)
+  assert.ok(await next().isEnabled());await next().click();await heading('堵点分析')
+  await page.getByRole('button',{name:'启动堵点分析',exact:true}).click();await page.clock.runFor(4600)
+  await shot('guide-congestion');await page.reload();await heading('堵点分析');assert.equal(await page.locator('.congestion-conclusion').count(),1)
+  await next().click();await heading('交通态势推演')
+  await page.getByRole('button',{name:'开始态势推演',exact:true}).click();await page.clock.runFor(5500)
+  assert.equal(await page.getByTestId('sim-length').innerText(),'6.8');await shot('guide-simulation')
+  assert.ok(await page.getByText('本次演示业务闭环已完成',{exact:true}).isVisible())
+  await page.reload();await heading('交通态势推演');assert.equal(await page.getByTestId('sim-time').innerText(),'14:30')
+  await guide.getByRole('button',{name:'完成演示',exact:true}).click();assert.equal(await guide.count(),0)
+  for(const [menu,title] of [['路网总览','路网运行监测总览'],['视频编目','视频编目管理'],['智慧轮巡','智慧轮巡'],['堵点分析','堵点分析'],['态势推演','交通态势推演']]){
+   await nav.getByRole('link',{name:new RegExp(menu)}).click();await heading(title);await shot('normal-'+menu)
+   await page.reload();await heading(title)
+  }
+  await page.getByRole('button',{name:'进入演示模式',exact:true}).click();await heading('路网运行监测总览')
+  await guide.getByRole('button',{name:'重新演示',exact:true}).click()
+  await next().click();await heading('视频编目管理');await next().click();await heading('智慧轮巡')
+  assert.equal(await page.locator('.monitor-card[data-state="idle"]').count(),4)
+  await page.getByRole('button',{name:'开始智慧轮巡',exact:true}).click();await page.clock.runFor(1000)
+  await nav.getByRole('link',{name:/视频编目/}).click();await heading('视频编目管理');await page.clock.runFor(30000)
+  await nav.getByRole('link',{name:/智慧轮巡/}).click();await heading('智慧轮巡');assert.equal(await page.locator('.monitor-card[data-state="idle"]').count(),4)
+  for(const vp of [{width:1366,height:768},{width:390,height:844}]){
+   await page.setViewportSize(vp);await page.clock.runFor(500)
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'横向溢出')
+   await page.screenshot({path:`.qa/integration-guide-${vp.width}.png`,fullPage:true})
+   assert.ok(await guide.getByRole('button',{name:'退出演示',exact:true}).isVisible())
+  }
+  await guide.getByRole('button',{name:'退出演示',exact:true}).click();assert.equal(await guide.count(),0)
+  assert.deepEqual(errors,[]);assert.deepEqual(external,[])
+  assert.ok(sizes.every(s=>s.w<=1920&&s.h<=1080),JSON.stringify(sizes))
+  console.log(JSON.stringify({result:'PASS',sizes,errors,external},null,2))
+ }finally{await browser.close()}
+}
+main().catch(e=>{console.error(e);process.exit(1)})
+

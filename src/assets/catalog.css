@@ -1,0 +1,127 @@
+/* 视频编目专用样式，复用全局主题变量，不改变其他页面。 */
+.catalog-page .page-heading { margin-bottom: 14px; }
+.catalog-toolbar, .catalog-toolbar > div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.catalog-toolbar { margin-bottom: 16px; color: var(--muted); font-size: 12px; }
+.catalog-toolbar b { padding: 0 10px; font-weight: 400; color: #3e617e; }
+.catalog-page .button, .catalog-dialog .button { font-size: 12px; white-space: nowrap; }
+.catalog-page .button.primary, .catalog-dialog .button.primary { background: #245b7d; border-color: #3986ae; color: #d8f3ff; }
+.catalog-page .button.primary:hover, .catalog-dialog .button.primary:hover { background: #306f93; }
+.catalog-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 18px; }
+.catalog-stats article { padding: 15px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(120deg, #152b41, var(--panel)); display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+.catalog-stats article > span { font-size: 12px; color: #a5bcd0; }
+.catalog-stats strong { font-size: 28px; font-weight: 600; grid-row: span 2; color: #85cbed; }
+.catalog-stats strong small { font-size: 11px; margin-left: 6px; font-weight: 400; color: var(--muted); }
+.catalog-stats p { font-size: 10px; color: #7591ab; }
+.catalog-stats .normal strong { color: var(--normal); }
+.catalog-stats .offline strong { color: #97aac0; }
+.catalog-stats .shared strong { color: #80a6ec; }
+.catalog-workbench { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 18px; align-items: start; }
+.catalog-tree, .catalog-tree ul { list-style: none; margin: 0; padding: 0; }
+.catalog-tree { padding: 8px; }
+.catalog-tree-panel nav { max-height: 530px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #34526c transparent; }
+.catalog-tree-row { display: flex; align-items: center; gap: 2px; min-height: 32px; border: 1px solid transparent; border-radius: 4px; padding-right: 8px; }
+.catalog-tree-row:hover { background: #142d44; }
+.catalog-tree-row.active { background: #1b3e58; border-color: #2b5975; }
+.catalog-tree > li + li { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.catalog-tree > li > .catalog-tree-row .tree-label { color: #c1d6e8; font-size: 12px; }
+.tree-toggle, .tree-label { background: transparent; border: 0; color: #8da9c1; padding: 5px 0; }
+.tree-toggle, .tree-leaf { width: 14px; flex: 0 0 14px; text-align: center; color: #7699b4; }
+.tree-label { display: flex; align-items: center; justify-content: space-between; gap: 5px; flex: 1; text-align: left; font-size: 11px; line-height: 1.6; }
+.tree-label small { font-size: 10px; color: #65849e; margin-left: auto; }
+.catalog-tree-row.active .tree-label { color: #89d9f9; }
+.catalog-tree-tip { padding: 12px 18px; font-size: 10px; color: #6688a2; line-height: 1.9; border-top: 1px solid var(--border); }
+.catalog-query { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr .8fr .9fr auto; gap: 12px; padding: 18px; }
+.catalog-query label, .catalog-form-grid label { display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #9bb5ca; min-width: 0; }
+.catalog-query input, .catalog-query select, .catalog-form-grid input, .catalog-form-grid select, .catalog-pagination select { width: 100%; min-width: 0; border: 1px solid #33506a; border-radius: 4px; padding: 9px 10px; color: #c6dced; background: #0c1c2e; font: inherit; font-size: 12px; height: 36px; }
+.catalog-query select:focus-visible, .catalog-dialog select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.query-actions { display: flex; gap: 8px; align-items: end; justify-content: flex-end; }
+.catalog-selection { display: flex; justify-content: space-between; gap: 10px; padding: 0 18px 14px; color: #708fa9; font-size: 11px; }
+.catalog-selection strong { color: #a7cee4; font-weight: 400; }
+.catalog-table-scroll { overflow: auto; max-height: 500px; scrollbar-width: thin; scrollbar-color: #34526c transparent; }
+.catalog-table { min-width: 1050px; font-size: 11px; }
+.catalog-table th { position: sticky; top: 0; z-index: 1; padding: 13px 10px; }
+.catalog-table td { padding: 12px 10px; }
+.catalog-table th:first-child, .catalog-table td:first-child { padding-left: 18px; }
+.catalog-table td:first-child { min-width: 250px; max-width: 300px; white-space: normal; overflow-wrap: anywhere; }
+.catalog-table td:first-child small { font-size: 10px; }
+.catalog-table td:last-child, .catalog-table th:last-child { position: sticky; right: 0; background: var(--panel); box-shadow: -5px 0 10px #07131e33; }
+.catalog-table th:last-child { background: #152b40; z-index: 2; }
+.catalog-table .status i { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.catalog-page .status.offline { color: #a6b5c7; background: #29394a; }
+.row-actions { display: flex; gap: 12px; }
+.row-actions button { border: none; background: none; padding: 6px 0; font-size: 11px; color: #6ec8ed; }
+.row-actions button:hover { color: #c2efff; }
+.catalog-pagination, .catalog-pagination > div, .catalog-pagination label { display: flex; align-items: center; gap: 12px; }
+.catalog-pagination { justify-content: space-between; padding: 16px 18px; color: #91abc1; font-size: 11px; }
+.catalog-pagination select { width: 75px; height: 32px; padding: 5px; }
+.catalog-pagination .button { padding: 7px 10px; }
+.catalog-pagination .button:disabled { opacity: .35; }
+.total-note { color: #607f98; }
+.catalog-session-note { font-size: 11px; color: #718fa9; padding: 16px 0 0; line-height: 1.8; }
+.catalog-feedback { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; border: 1px solid #286756; border-radius: 4px; background: #12352f; color: #86d5b7; font-size: 12px; margin-bottom: 16px; }
+.catalog-feedback button { border: 0; background: none; color: inherit; font-size: 20px; }
+.catalog-dialog { padding: 0; margin: auto; width: min(660px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px); color: var(--text); background: var(--panel); border: 1px solid #375a76; border-radius: 10px; box-shadow: 0 24px 100px #0008; overflow: hidden; }
+.catalog-dialog[open] { display: flex; flex-direction: column; }
+.catalog-dialog.wide { width: min(780px, calc(100vw - 32px)); }
+.catalog-dialog::backdrop { background: #030c18c9; backdrop-filter: blur(3px); }
+.catalog-dialog-header { flex: 0 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; background: #152b41; border-bottom: 1px solid var(--border); }
+.catalog-dialog-header h2 { font-size: 17px; }
+.catalog-dialog-header span { display: block; font-size: 11px; color: #7396b0; margin-top: 8px; }
+.dialog-close { padding: 4px 8px; border: 0; border-radius: 4px; color: #a7bfd3; background: transparent; font-size: 26px; }
+.dialog-close:hover { background: #27405a; }
+.catalog-dialog-body { padding: 22px 24px; overflow: auto; min-height: 0; scrollbar-width: thin; scrollbar-color: #34526c transparent; }
+.catalog-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.catalog-form-grid input, .catalog-form-grid select { height: 40px; }
+.catalog-form-grid :disabled { color: #7590a8; background: #132335; cursor: not-allowed; opacity: 1; }
+.catalog-form-grid input[readonly] { color: #71cde9; font-family: Consolas, monospace; background: #102b3a; }
+.form-span { grid-column: 1 / -1; }
+.form-note { font-size: 11px; line-height: 1.9; color: #7e9db7; margin: 0 0 18px; }
+.catalog-form-grid + .form-note { margin: 16px 0 0; }
+.code-preview { display: flex; align-items: flex-end; gap: 12px; }
+.code-preview label { flex: 1; }
+.code-preview button { height: 40px; }
+.catalog-dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); margin-top: 22px; padding-top: 18px; }
+.form-success, .form-error { padding: 10px 12px; font-size: 12px; line-height: 1.8; margin-top: 14px; border-radius: 4px; }
+.form-success { color: #90dcbf; background: #16392f; }
+.form-error { color: #ffb3bd; background: #3d2736; }
+.catalog-details section + section { margin-top: 22px; }
+.catalog-details h3, .rule-example h3 { font-size: 13px; color: #b4d7ed; font-weight: 500; margin-bottom: 12px; }
+.catalog-details dl { margin: 0; padding: 0; }
+.catalog-details dl > div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid #22384c; font-size: 12px; line-height: 1.7; }
+.catalog-details dt { color: #7896af; }
+.catalog-details dd { margin: 0; color: #c2d7e6; overflow-wrap: anywhere; }
+.catalog-details p, .rule-example p { font-size: 11px; color: #809fb7; line-height: 1.9; margin-top: 8px; }
+.catalog-rule-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+.catalog-rule-cards small { display: block; font-size: 10px; margin-top: 8px; color: #91abc0; }
+.rule-example { padding: 18px; background: #102b3b; border: 1px solid #2c4c63; border-radius: 5px; margin: 20px 0; }
+.rule-example h3 { line-height: 1.8; }
+.rule-example code { display: block; color: #7ad1eb; font-size: 16px; overflow-wrap: anywhere; margin: 14px 0; }
+@media (max-width: 1500px) {
+  .catalog-workbench { grid-template-columns: 215px minmax(0, 1fr); gap: 14px; }
+  .catalog-query { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .query-actions { grid-column: auto; align-items: end; }
+  .catalog-selection > span:last-child { display: none; }
+}
+@media (max-width: 1000px) {
+  .catalog-stats { grid-template-columns: 1fr 1fr; }
+  .catalog-query { grid-template-columns: 1fr 1fr; }
+  .catalog-pagination { flex-wrap: wrap; }
+  .catalog-pagination > div { gap: 8px; }
+}
+@media (max-width: 700px) {
+  .catalog-workbench { grid-template-columns: 1fr; }
+  .catalog-tree-panel nav { max-height: 240px; }
+  .catalog-stats { gap: 10px; }
+  .catalog-stats article { padding: 12px; }
+  .catalog-stats p { grid-column: 1 / -1; }
+  .catalog-stats strong { grid-row: auto; font-size: 24px; }
+  .catalog-toolbar > span { display: none; }
+  .catalog-toolbar { justify-content: flex-end; }
+  .catalog-form-grid { grid-template-columns: 1fr; gap: 14px; }
+  .catalog-dialog-body { padding: 18px; }
+  .catalog-dialog-header { padding: 16px 18px; }
+  .catalog-pagination > div { flex-wrap: wrap; }
+  .code-preview { flex-direction: column; align-items: stretch; }
+  .catalog-details dl > div { grid-template-columns: 90px 1fr; }
+  .catalog-rule-cards { gap: 6px; }
+}

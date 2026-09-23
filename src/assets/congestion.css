@@ -1,0 +1,51 @@
+/* 仅限定堵点分析模块，复用现有主题令牌。 */
+.congestion-toolbar,.congestion-toolbar>div { display:flex; align-items:center; gap:12px; }
+.congestion-toolbar { justify-content:space-between; padding:10px 14px; background:var(--panel); border:1px solid var(--border); border-radius:6px; font-size:12px; color:var(--muted); }
+.congestion-toolbar .button { padding:8px 12px; font-size:12px; white-space:nowrap; }
+.congestion-toolbar .primary { background:#205877; border-color:#397a9c; color:#d1efff; }
+.congestion-toolbar button:disabled { opacity:.5; }
+.congestion-link { background:none; border:0; color:var(--primary); font-size:12px; }
+.congestion-source-note { color:#6f8ca6; font-size:11px; padding:10px 2px; }
+.congestion-main { display:grid; grid-template-columns:minmax(300px,1.05fr) minmax(340px,1.15fr) minmax(310px,1fr); gap:14px; }
+.congestion-page .panel-heading { min-height:44px; padding:10px 14px; }
+.congestion-page .panel-heading h2 { font-size:13px; }
+.congestion-page .panel-subtitle { font-size:10px; }
+.congestion-page .panel-heading>div { gap:10px; }
+.congestion-center { display:flex; flex-direction:column; gap:12px; min-width:0; }
+.congestion-topology { padding:12px 16px; }
+.corridor-caption { display:flex; align-items:center; justify-content:space-between; font-size:10px; color:var(--muted); margin-bottom:8px; }
+.corridor-caption strong { font-size:16px; color:#afd9e8; }.corridor-caption strong span { font-size:12px; font-weight:400; }
+.corridor-nodes button { display:grid; grid-template-columns:36px 63px 66px 1fr; align-items:center; gap:6px; width:100%; height:42px; background:transparent; color:var(--muted); border:1px solid transparent; border-radius:5px; text-align:left; padding:0 8px; }
+.corridor-nodes button:hover,.corridor-nodes button.selected { background:#193148; border-color:#3c6381; }
+.corridor-nodes button.accident { background:#352334; border-color:#754454; }
+.corridor-nodes button.located { box-shadow:inset 3px 0 var(--danger); }
+.corridor-nodes strong { font-size:12px; color:#c1d5e5; }.corridor-nodes button>span:not(.corridor-track) { font-size:11px; color:var(--node-color); }.corridor-nodes small { font-size:10px; }
+.corridor-track { position:relative; display:grid; place-items:center; height:42px; }
+.corridor-track:before { content:''; position:absolute; width:5px; top:0; bottom:0; background:var(--node-color); opacity:.5; }
+.corridor-nodes button:first-child .corridor-track:before { top:50%; }.corridor-nodes button:last-child .corridor-track:before { bottom:50%; }
+.corridor-track i { position:relative; display:grid; place-items:center; border:2px solid var(--node-color); background:var(--panel); color:var(--node-color); border-radius:50%; width:13px; height:13px; font-style:normal; font-size:11px; }
+.accident .corridor-track i { width:23px; height:23px; box-shadow:0 0 0 5px #f2667920; }
+.corridor-legend { display:flex; gap:14px; padding-top:15px; font-size:10px; color:var(--muted); }
+.corridor-legend span { display:flex; align-items:center; gap:5px; }.corridor-legend i { width:6px; height:6px; border-radius:50%; }
+.congestion-topology>p { font-size:10px; color:#66839b; margin-top:10px; }
+.segment-detail { padding:12px 16px; }.segment-detail h3 { font-size:13px; font-weight:400; color:#a9c7db; }.segment-detail h3 b { margin-left:8px; color:var(--primary); }
+.segment-detail dl { display:grid; grid-template-columns:repeat(4,1fr); gap:14px 12px; margin:16px 0 4px; }
+.segment-detail dt { font-size:10px; color:var(--muted); margin-bottom:6px; }.segment-detail dd { font-size:12px; margin:0; color:#d2e2ed; }
+.congestion-result { flex:1; }.congestion-conclusion,.congestion-result-empty { padding:14px 16px; min-height:157px; }
+.congestion-conclusion h3 { color:var(--danger); font-size:16px; }.congestion-conclusion p { font-size:11px; color:var(--muted); margin:8px 0 12px; }
+.congestion-conclusion>div { display:flex; align-items:center; gap:22px; margin-bottom:14px; }.congestion-conclusion strong { font-size:24px; color:#e9c2c9; font-weight:500; }.congestion-conclusion small { font-size:10px; color:var(--muted); }.congestion-conclusion span { font-size:10px; color:var(--muted); }.congestion-conclusion span b { display:block; color:#e9adbb; font-size:12px; margin-top:4px; }.congestion-conclusion a { font-size:11px; color:var(--primary); }
+.congestion-result-empty { display:flex; flex-direction:column; justify-content:center; gap:12px; color:#92afc6; font-size:13px; }.congestion-result-empty p { color:#66839b; font-size:10px; line-height:1.8; }
+.source-cards { padding:12px 14px 0; display:grid; gap:8px; }.source-cards article { display:flex; align-items:center; gap:10px; padding:10px; background:#14263a; border:1px solid #263e53; border-radius:5px; }.source-cards i { color:#4e8caa; font-style:normal; font-size:13px; }.source-cards h3 { font-size:12px; font-weight:400; color:#b6ccdc; }.source-cards p { font-size:10px; color:var(--muted); margin-top:6px; }.source-cards article>span { margin-left:auto; color:#63b29a; font-size:9px; white-space:nowrap; }.fusion-explainer { font-size:10px; line-height:1.8; color:#7291aa; padding:12px 16px; }
+.congestion-process { margin-top:14px; padding:12px 18px; }.analysis-message { display:flex; justify-content:space-between; font-size:11px; color:#6d8ba4; }.analysis-message strong { color:#9ccbe2; font-weight:400; }.congestion-process ol { display:flex; justify-content:space-between; list-style:none; margin:12px 0 0; padding:0; gap:12px; }.congestion-process li { display:flex; align-items:center; gap:9px; color:#688097; font-size:12px; flex:1; }.congestion-process li b { width:24px; height:24px; border:1px solid #345068; border-radius:50%; display:grid; place-items:center; font-weight:400; }.congestion-process li>span { margin-left:auto; color:#48667d; }.congestion-process li.active { color:var(--primary); }.congestion-process li.active b { background:#1a425f; border-color:var(--primary); }.congestion-process li.done { color:var(--normal); }.congestion-process li.done b { border-color:#338974; }.congestion-process li.located { font-weight:600; }
+.congestion-charts { display:grid; grid-template-columns:1.15fr 1fr; gap:14px; margin-top:14px; }.congestion-page .chart { height:182px; }.trend-legend { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--muted); }.trend-legend i { width:12px; height:2px; background:var(--primary); }.trend-legend i:nth-of-type(2) { background:var(--warning); margin-left:8px; }.cause-chart { position:relative; }.cause-wait { position:absolute; top:40%; left:45%; color:#7692a9; font-size:12px; }.congestion-footnote { font-size:10px; color:#607f98; padding-top:10px; line-height:1.6; }
+.congestion-dialog { width:min(580px,calc(100vw - 32px)); max-height:85vh; overflow:auto; background:var(--panel); color:var(--text); border:1px solid #36526b; border-radius:8px; padding:24px; }.congestion-dialog::backdrop { background:#020a16b8; }.congestion-dialog header { display:flex; justify-content:space-between; align-items:center; gap:14px; }.congestion-dialog h2 { font-size:18px; }.congestion-dialog p { font-size:11px; color:var(--muted); margin-top:8px; }.congestion-dialog dl { margin:20px 0 0; }.congestion-dialog dl>div { display:grid; grid-template-columns:110px 1fr; padding:12px 0; border-top:1px solid var(--border); font-size:13px; }.congestion-dialog dt { color:var(--muted); }.congestion-dialog dd { margin:0; overflow-wrap:anywhere; }
+@media(max-width:1500px) { .congestion-main { grid-template-columns:1fr 1fr; }.congestion-sources { grid-column:1/-1; }.source-cards { grid-template-columns:repeat(5,1fr); }.source-cards article { align-items:flex-start; }.source-cards article>span { display:none; }.source-cards p { line-height:1.8; }.congestion-toolbar { flex-wrap:wrap; }.segment-detail dl { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:850px) { .congestion-main,.congestion-charts { grid-template-columns:1fr; }.source-cards { grid-template-columns:1fr 1fr; }.congestion-toolbar>div { flex-wrap:wrap; }.congestion-process ol { flex-wrap:wrap; }.congestion-process li { flex-basis:28%; }.congestion-page .panel-heading>div { flex-wrap:wrap; }.analysis-message { gap:12px; }.congestion-conclusion>div { gap:14px; } }
+@media(max-width:450px) { .congestion-main { display:flex; flex-direction:column; }.corridor-nodes button { grid-template-columns:24px 57px 60px 1fr; padding:0 4px; gap:4px; }.corridor-nodes small { font-size:9px; }.source-cards { grid-template-columns:1fr; }.corridor-legend { gap:10px; }.congestion-dialog dl>div { grid-template-columns:90px 1fr; }.congestion-topology { padding:12px; } }
+@media(min-width:1501px) {
+  .corridor-nodes button,.corridor-track { height:36px; }
+  .source-cards article { padding:8px 10px; }
+  .source-cards { gap:6px; }
+  .congestion-page .chart { height:158px; }
+  .congestion-conclusion,.congestion-result-empty { min-height:145px; }
+}

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: guangdong-road-network-demo
+    runtime: static
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache

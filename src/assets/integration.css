@@ -1,0 +1,83 @@
+/* 全系统收口规范：集中覆盖公共组件，保留原业务布局与主题令牌。 */
+html { scrollbar-gutter:stable; }
+.unified-ui .topbar { position:sticky; top:0; z-index:30; }
+.unified-ui .topbar-right { gap:16px; }.unified-ui .topbar-right time { font-variant-numeric:tabular-nums; white-space:nowrap; }
+.unified-ui .enter-demo { padding:8px 12px; color:#b5e1f6; border-color:#366985; background:#153b54; white-space:nowrap; font-size:12px; }
+.unified-ui .panel { background:var(--panel); border-color:var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
+.unified-ui .panel-heading h2 { font-size:13px; }.unified-ui .panel-heading { padding-left:14px; padding-right:14px; }
+.unified-ui .button { border-radius:5px; }.unified-ui button:disabled { cursor:not-allowed; opacity:.45; }
+.unified-ui .status.offline { color:#93a0ae; }.unified-ui .status.normal { color:var(--normal); }
+.unified-ui .patrol-page .monitor-card.suspected { border-color:var(--congested); box-shadow:0 0 0 1px #ef964c33; }
+.unified-ui .suspected .monitor-state,.unified-ui .patrol-event:not(.confirmed) .patrol-event-title,.unified-ui .patrol-event:not(.confirmed) .event-status-text { color:var(--congested); }
+.unified-ui .patrol-banner.alert:not(.confirmed) { border-color:#805639; background:#322b2a; }.unified-ui .patrol-banner.alert:not(.confirmed) strong { color:var(--congested); }
+.unified-ui .monitor-card.confirmed { border-color:var(--danger); }.unified-ui .monitor-card.analyzing { border-color:var(--primary); }
+.dashboard-shortcuts { display:flex; justify-content:flex-end; gap:18px; margin:-4px 0 12px; color:#86c7e2; font-size:11px; }
+.demo-guide { position:fixed; top:72px; left:0; right:0; z-index:29; height:80px; display:flex; align-items:center; gap:16px; padding:10px 28px; background:#142b40; border-bottom:1px solid #375873; box-shadow:0 4px 12px #040d1d50; }
+.demo-guide-progress { display:flex; align-items:baseline; gap:5px; color:#6f9cb8; }.demo-guide-progress b { color:#76cdec; font-size:27px; font-weight:500; }.demo-guide-progress span { font-size:12px; }
+.demo-guide-text { flex:1; min-width:0; }.demo-guide-text strong { font-size:13px; color:#c8e5f2; }.demo-guide-text p { font-size:11px; color:#8fb0c7; margin:5px 0; }.demo-guide-text small { font-size:10px; color:#638da9; }
+.demo-guide-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }.demo-guide .button { padding:7px 12px; font-size:12px; }.demo-guide .primary { background:#205777; color:#cff0fe; border-color:#3c84a5; }.guide-text-button { color:#94b6cd; font-size:11px; border:0; background:none; padding:6px; }.guide-block { max-width:210px; font-size:10px; color:#d6bb7e; line-height:1.6; }
+.demo-completion { display:flex; flex-wrap:wrap; gap:5px 14px; margin-bottom:6px; }.demo-completion strong { font-size:11px; color:var(--normal); font-weight:400; }.demo-completion span { color:#769caa; font-size:9px; }.demo-completion a { color:var(--primary); font-size:11px; }
+@media(min-width:1600px) {
+ .unified-ui .workspace-footer { padding-top:10px; padding-bottom:10px; }
+ .unified-ui .dashboard .metrics { margin-bottom:12px; }.unified-ui .dashboard .metric-card { padding-top:10px; padding-bottom:10px; }.unified-ui .dashboard .metric-value { margin:6px 0; }
+ .unified-ui .patrol-page .panel-heading { min-height:34px; padding-top:7px; padding-bottom:7px; }
+ .unified-ui .patrol-page .page-heading { margin-bottom:10px; }.unified-ui .patrol-toolbar { margin-bottom:8px; }.unified-ui .patrol-banner { min-height:32px; padding:8px 12px; margin-bottom:10px; }
+ .unified-ui .patrol-video-grid { padding:8px; gap:8px; }.unified-ui .monitor-screen { height:116px; }.unified-ui .monitor-header { padding:7px 10px; }.unified-ui .monitor-footer { padding:7px 10px; gap:4px; }
+ .unified-ui .patrol-sidebar { gap:8px; }.unified-ui .patrol-model-tags { padding:6px 10px 3px; gap:4px; }.unified-ui .patrol-model-tags span { padding:3px 2px; }.unified-ui .patrol-models p { padding:2px 12px 6px; }
+ .unified-ui .patrol-progress { padding:8px 12px; }.unified-ui .patrol-progress progress { margin:7px 0; }.unified-ui .patrol-event { padding:8px 12px 0; }.unified-ui .patrol-event-title b { font-size:20px; }.unified-ui .patrol-event-road { margin:5px 0 7px; }.unified-ui .patrol-event dl { gap:6px; }.unified-ui .patrol-event dl>div { gap:3px; }.unified-ui .review-stage { padding-top:5px; }
+ .unified-ui .review-action { padding:8px 12px; }.unified-ui .review-action .button { padding:6px; }.unified-ui .review-action small { margin-top:5px; }.unified-ui .patrol-event-empty { min-height:128px; }
+ .unified-ui .patrol-bottom { margin-top:10px; gap:14px; }.unified-ui .patrol-log { height:114px; padding:6px 14px; }.unified-ui .patrol-log>div { padding:3px 0; }.unified-ui .bandwidth-content { padding:10px 14px 5px; grid-template-columns:150px 1fr; }.unified-ui .bandwidth-total strong { font-size:25px; }.unified-ui .bandwidth-note { padding:0 14px 8px; line-height:1.5; }
+ .unified-ui .patrol-record-panel { margin-top:10px; }.unified-ui .patrol-record-panel th { padding:7px 14px; }.unified-ui .patrol-record-panel td { padding:7px 14px; }.unified-ui .patrol-footnote { padding-top:7px; }
+ .unified-ui .catalog-tree-panel nav { max-height:450px; overflow:auto; }.unified-ui .catalog-table-scroll { max-height:450px; overflow:auto; }
+ .unified-ui .simulation-page .chart { height:145px; }.unified-ui .sim-conclusion ul { margin-top:5px; }.unified-ui .sim-conclusion p { line-height:1.6; }
+ .unified-ui.demo-active .workspace { padding-top:80px; }.unified-ui.demo-active .sidebar { top:152px; min-height:calc(100vh - 152px); }
+ .unified-ui.demo-active .breadcrumb { display:none; }.unified-ui.demo-active .page-heading { margin-top:8px; margin-bottom:10px; }.unified-ui.demo-active .eyebrow { display:none; }.unified-ui.demo-active .page-heading h1 { font-size:21px; }.unified-ui.demo-active .page-heading p { margin-top:4px; }
+ .unified-ui.demo-active .workspace-footer { display:none; }
+}
+@media(max-width:1599px) {
+ .demo-guide { position:sticky; top:82px; height:auto; min-height:88px; padding:10px 20px; }.unified-ui.demo-active .sidebar { top:170px; min-height:calc(100vh - 170px); }.demo-guide-text p { line-height:1.6; }.guide-block { display:none; }.demo-guide-actions { max-width:310px; }.demo-guide-text small { display:none; }
+ .unified-ui .topbar-right { gap:10px; }.unified-ui .local-status { display:none; }
+}
+@media(min-width:1401px) and (max-width:1599px) { .demo-guide { top:72px; }.unified-ui.demo-active .sidebar { top:160px; } }
+@media(max-width:1100px) { .unified-ui .topbar-right time { display:none; }.unified-ui.demo-active .sidebar { top:0; }.demo-guide { position:relative; top:0; }.demo-guide-actions { max-width:240px; }.demo-guide-text p { font-size:10px; } }
+@media(max-width:700px) { .unified-ui .topbar { flex-wrap:wrap; height:auto; min-height:72px; gap:8px; padding:10px 12px; }.unified-ui .topbar-right { display:flex; margin-left:auto; }.unified-ui .topbar-right .demo-badge { display:inline; }.unified-ui .enter-demo { font-size:10px; padding:5px 8px; }.demo-guide { flex-wrap:wrap; padding:10px 12px; gap:8px; }.demo-guide-text { flex-basis:75%; }.demo-guide-actions { max-width:none; width:100%; }.dashboard-shortcuts { flex-wrap:wrap; gap:12px; justify-content:flex-start; } }
+@media(min-width:1600px) {
+ .unified-ui .patrol-page .panel .panel-heading { min-height:30px; padding-top:5px; padding-bottom:5px; }
+ .unified-ui .patrol-page .patrol-models p { display:none; }
+ .unified-ui .patrol-page .patrol-event-empty { min-height:108px; }
+ .unified-ui .patrol-page .monitor-card.confirmed { border-color:var(--danger); }
+ .unified-ui .patrol-page .monitor-card.suspected { border-color:var(--congested); }
+ .unified-ui .patrol-page .patrol-bottom .panel-heading { min-height:30px; padding-top:5px; padding-bottom:5px; }
+}
+@media(min-width:1600px) { .unified-ui .patrol-page .patrol-footnote { display:none; } }
+
+/* 交付工具与截图展示，不改变业务状态。 */
+.unified-ui .topbar-right { gap:8px; }
+.unified-ui .topbar-right .button { white-space:nowrap; font-size:11px; padding:7px 9px; }
+.system-tools-dialog { width:min(660px,calc(100vw - 32px)); max-height:85vh; overflow:auto; padding:24px; border:1px solid #38546c; border-radius:10px; color:#dce8f3; background:#14283d; box-shadow:0 24px 80px #0009; }
+.system-tools-dialog::backdrop { background:#040f20bb; }
+.system-tools-dialog header,.system-tools-dialog footer { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.system-tools-dialog h2 { font-size:20px; }.system-tools-dialog h3 { font-size:15px; margin-top:24px; }.system-tools-dialog p { font-size:13px; line-height:1.9; color:#a7bdcf; }.system-tools-dialog footer { margin-top:24px; justify-content:flex-end; }
+.system-flow { display:grid; grid-template-columns:repeat(3,1fr); padding:0; gap:12px; list-style:none; }.system-flow li { display:flex; gap:8px; align-items:center; padding:12px 6px; background:#1c364e; font-size:12px; border-radius:5px; }.system-flow b { color:#6ec8ed; }.system-flow span { margin-left:auto; }
+.monitor-card:not(.hd) .road-scene,.monitor-card:not(.hd) video { filter:blur(.65px) saturate(.8); }
+.monitor-card .road-scene,.monitor-card video { transition:filter .6s ease; }
+.unified-ui .incident-box { left:38%; width:34%; top:44%; }
+.unified-ui .incident-box span { font-size:9px; padding:4px; }
+.unified-ui .corridor-track:before { width:9px; }
+.unified-ui .corridor-track i { width:18px; height:18px; border-width:3px; background:#102138; }
+.unified-ui .accident .corridor-track i { width:30px; height:30px; font-size:17px; }
+.unified-ui .corridor-nodes strong,.unified-ui .sim-node-label { font-size:13px; }
+.road-status-legend { display:flex; flex-wrap:wrap; gap:14px; padding:6px 14px; color:#9cb3c7; font-size:11px; }
+.road-status-legend span { display:flex; gap:6px; align-items:center; }.road-status-legend i { width:15px; height:4px; border-radius:2px; }.road-status-legend b { color:#f26679; border:1px solid #f26679; border-radius:50%; width:14px; text-align:center; }
+.screenshot-mode .tool-button,.screenshot-mode .enter-demo,.screenshot-mode .workspace-footer,.screenshot-mode .sidebar-bottom>small,.screenshot-mode .patrol-footnote,.screenshot-mode .dashboard-shortcuts,.screenshot-mode .patrol-actions,.screenshot-mode .catalog-toolbar,.screenshot-mode .query-actions,.screenshot-mode .congestion-toolbar .button,.screenshot-mode .sim-toolbar .button { display:none!important; }
+.screenshot-mode .sim-car { animation-play-state:paused; }
+@media(max-width:1700px) { .unified-ui .topbar-right time { display:none; } }
+@media(max-width:700px) { .unified-ui .topbar-right { flex-wrap:wrap; justify-content:flex-end; }.system-flow { grid-template-columns:repeat(2,1fr); } }
+
+.screenshot-mode .sim-road-link,.screenshot-mode .sim-road-node,.screenshot-mode .sim-spread-band,.screenshot-mode .monitor-card video,.screenshot-mode .road-scene { transition:none; }
+
+@media(min-width:1600px) {
+ .unified-ui.screenshot-mode .catalog-tree-panel nav { max-height:none; }
+ .unified-ui.screenshot-mode .catalog-tree-row { min-height:25px; }
+ .unified-ui.screenshot-mode .tree-toggle,.unified-ui.screenshot-mode .tree-label { padding-top:2px; padding-bottom:2px; }
+}
